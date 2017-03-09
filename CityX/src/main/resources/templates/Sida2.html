@@ -27,8 +27,12 @@
     var map;
     var random;
     var locations;
+<<<<<<< HEAD
     var highscore=0;
 
+=======
+    var arr = []
+>>>>>>> a47f6a6859a4ab14b34bbfcbd7c0632f5f686f67
     // Create a new blank array for all the listing markers.
     var markers = [];
 
@@ -39,6 +43,7 @@
             zoom: 13,
             mapTypeControl: false
         });
+        genRandoms();
 
         // These are the real estate listings that will be shown to the user.
         // Normally we'd have these in a database instead
@@ -55,6 +60,13 @@
         var largeInfowindow = new google.maps.InfoWindow();
 
         /*<![CDATA[*/  // The following group uses the location array to create an array of markers on initialize.
+        function genRandoms() {
+            while (arr.length < 7) {
+                var randomnumber = Math.ceil(Math.random() * 7)
+                if (arr.indexOf(randomnumber) > -1) continue;
+                arr[arr.length] = randomnumber;
+            }
+        }
         for (var i = 0; i < locations.length; i++) {
             // Get the position from the location array.
             var position = locations[i].location;
@@ -99,13 +111,17 @@
         var bounds = new google.maps.LatLngBounds();
         // Extend the boundaries of the map for each marker and display the marker
 
-        random = Math.floor(Math.random() * (5 - 0 + 1));
-
+        random = newNumber();
+        console.log("Nummer " + random);
         markers[random].setMap(map);
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
         map.setZoom(13);
 
+    }
+
+    function newNumber(){
+        return arr.shift();
     }
 
     // This function will loop through the listings and hide them all.
