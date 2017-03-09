@@ -1,5 +1,5 @@
 <script th:inline="javascript">
-    async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyD_Cx6d7XlQkmfxpLS8tryg0Txw1xvXrr0&callback=initMap">
+    async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyD_Cx6d7XlQkmfxpLS8tryg0Txw1xvXrr0&callback=initMap"
 var map;
 
 // Create a new blank array for all the listing markers.
