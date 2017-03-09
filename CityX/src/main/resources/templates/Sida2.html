@@ -11,7 +11,11 @@
             <input id="show-listings" type="button" value="Show Listings"/>
             <input id="hide-listings" type="button" value="Hide Listings"/>
         </div>
+
+        <input id="userInput" type="text" name="userInput"/>
+        <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer()">Gissa</button>
     </div>
+
     <div id="map"></div>
 </div>
 <script type="text/javascript" th:src="@{script.js}"></script>
@@ -93,6 +97,20 @@
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
         }
+    }
+
+    function checkIfCorrectAnswer() {
+        var input = document.getElementById("userInput").value;
+
+        // Ändra "a" till CityName
+            if(input == "a"){
+                //do something
+                showListings();
+            }
+            else {
+                //visa ledtrådar/zooma ut/whatever
+                hideListings();
+            }
     }
 /*]]>*/
 </script>
