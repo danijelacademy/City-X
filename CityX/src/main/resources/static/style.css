@@ -26,6 +26,11 @@ html,body {
             width: 48%;
         }
 
+        #userInput,
+        #userSubmit {
+            width: 48%;
+        }
+
         #map {
             bottom:0px;
             height: 100%;
