@@ -6,10 +6,12 @@
 <body>
 <div class="container">
     <div class="options-box">
-        <h1>Find Your New NYC Home</h1>
+        <h1>Gissa var</h1>
         <div>
             <input id="show-listings" type="button" value="Show Listings"/>
             <input id="hide-listings" type="button" value="Hide Listings"/>
+            <div class="results"></div>
+
         </div>
     </div>
     <div id="map"></div>
@@ -18,6 +20,7 @@
 <script th:inline="javascript">
 
     var map;
+    nextCity();
 
     // Create a new blank array for all the listing markers.
     var markers = [];
@@ -34,7 +37,8 @@
         // Normally we'd have these in a database instead
 
         var locations = [
-            {title: 'Park Ave Penthouse', location: {lat:[[${latitud}]], lng:[[${longitud}]]}}];
+            {title: '?', location: {lat:[[${latitud}]], lng:[[${longitud}]]}}];
+
 
         var largeInfowindow = new google.maps.InfoWindow();
 
@@ -92,6 +96,13 @@
     function hideListings() {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
+        }
+    }
+    function nextCity(){
+        var random = Math.floor(Math.random() * (5 - 0 + 1)) + 1;
+        for (var i = 0; i < location.length; i++) {
+            if(location[i].id==random)
+                return locations[i];
         }
     }
 /*]]>*/

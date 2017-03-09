@@ -4,6 +4,7 @@ var map;
 
 // Create a new blank array for all the listing markers.
 var markers = [];
+nextCity();
 
 function initMap() {
     // Constructor creates a new map - only center and zoom are required.
@@ -18,6 +19,15 @@ function initMap() {
 
     var locations = [
         {title: 'Park Ave Penthouse', location: {lat:[[${latitud}]], lng:[[${longitud}]]}}];
+
+    function nextCity(){
+        var random = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+
+        for (i = 0; i < location.length; i++) {
+            if(location[i].id==random)
+                return locations[i];
+        }
+    }
 
     var largeInfowindow = new google.maps.InfoWindow();
 
