@@ -31,6 +31,10 @@ html,body {
             width: 48%;
         }
 
+        #hintbox {
+            display: none;
+        }
+
         #map {
             bottom:0px;
             height: 100%;
