@@ -1,15 +1,11 @@
 package com.example.Controller.Domain;
-import com.example.Domain.City;
-import com.example.Domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.apache.coyote.http11.Constants.a;
 
 @Component
 public class Repository {
@@ -19,15 +15,15 @@ public class Repository {
 
     //FÖRSTA METOD BÖRJAR HÄR.
 
-    public City getcity(int id) {
+    public List<City> getcitys() {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT* FROM locations WHERE ID = ?")) {
-            ps.setLong(1, id);
+             PreparedStatement ps = conn.prepareStatement("SELECT* FROM locations")) {
             try (ResultSet rs = ps.executeQuery()) {
-                if (!rs.next()) {
-                    throw new SQLException();
+                List<City> citys = new ArrayList<>();
+                while(rs.next()){
+                    citys.add(rsCity(rs));
                 }
-                else return rsCity(rs);
+                return citys;
             }
         } catch (SQLException e) {
         }
