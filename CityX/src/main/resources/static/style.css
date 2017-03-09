@@ -1,10 +1,21 @@
 html,body {
     font-family: sans-serif;
     height: 100%;
-    margin: 0;
-    padding: 0;
     background: url("world_map_04.jpg");
+    background-size: 80%;
+
 }
+#hintbox1 {
+    position: fixed;
+
+}
+
+#hintbox2 {
+    position: fixed;
+    margin: 15px;
+
+}
+
 #userInput {
    color: #2F4F4F;
    font-size: 10px;
@@ -44,7 +55,7 @@ html,body {
     margin:0 auto;
 }
 #knapp2 {
-    background-color: lawngreen; /* Green */
+    background-color: black ; /* Green */
     color: white;
     padding: 20px 20px;
     text-align: center;
@@ -53,16 +64,16 @@ html,body {
 #sida1{
     background-color: burlywood;
     text-align: center;
-    color:#fff;
+    color:black;
     padding-top:10em;
 }
 
-* { color:#fff;
+* { color: #fff;
     text-decoration: none;
 
 }
 .container {
-    height: 100%;
+    height: 800px;
     width: 920px;
     position: relative;
     margin: 0 auto;
@@ -96,7 +107,7 @@ input {
 .options-box {
     background: #DCDCDC;
     border: 1px solid #999;
-    height: 28%;
+    height: 35%;
     line-height: 34px;
     text-align: center;
     width: 100%;
