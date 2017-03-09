@@ -17,11 +17,11 @@ public class Repository {
 
     public List<City> getcitys() {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT* FROM locations")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT* FROM locations")) { //Hämtar alla rader i DB
             try (ResultSet rs = ps.executeQuery()) {
-                List<City> citys = new ArrayList<>();
+                List<City> citys = new ArrayList<>(); //Skapar en array
                 while(rs.next()){
-                    citys.add(rsCity(rs));
+                    citys.add(rsCity(rs)); //Lagrar resultaten i arrayen
                 }
                 return citys;
             }
@@ -32,13 +32,13 @@ public class Repository {
 
     private City rsCity(ResultSet rs) throws SQLException {
         return new City(
-                rs.getInt(1),
-                rs.getString(2),
-                rs.getDouble(3),
-                rs.getDouble(4),
-                rs.getString(5),
-                rs.getString(6),
-                rs.getString(7)
+                rs.getInt(1), //ID
+                rs.getString(2),//Stad
+                rs.getDouble(3),//longitud
+                rs.getDouble(4),//latitud
+                rs.getString(5),//hint 1
+                rs.getString(6),//hint 2
+                rs.getString(7)//hint 3
         );
 
     }

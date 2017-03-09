@@ -20,5 +20,5 @@ public class Gamecontroller {
 
         return new ModelAndView("Sida2")
                 .addObject("citys", citys);
-    }
-}
+
+}}

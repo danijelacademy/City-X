@@ -24,7 +24,8 @@
 <script th:inline="javascript">
 
     var map;
-    nextCity();
+    var random;
+    var locations;
 
     // Create a new blank array for all the listing markers.
     var markers = [];
@@ -40,9 +41,14 @@
         // These are the real estate listings that will be shown to the user.
         // Normally we'd have these in a database instead
 
-        var locations = [
-
-        {title: '?', location: {lat:[[${citys[0].latitud}]], lng:[[${citys[0].longitud}]]}}];
+        locations=[
+            {title: [[${citys[0].name}]], location: {lat:[[${citys[0].longitud}]], lng:[[${citys[0].latitud}]]},id:[[${citys[0].id}]]},
+            {title: [[${citys[1].name}]], location: {lat:[[${citys[1].longitud}]], lng:[[${citys[1].latitud}]]},id:[[${citys[1].id}]]},
+            {title: [[${citys[2].name}]], location: {lat:[[${citys[2].longitud}]], lng:[[${citys[2].latitud}]]},id:[[${citys[2].id}]]},
+            {title: [[${citys[3].name}]], location: {lat:[[${citys[3].longitud}]], lng:[[${citys[3].latitud}]]},id:[[${citys[3].id}]]},
+            {title: [[${citys[4].name}]], location: {lat:[[${citys[4].longitud}]], lng:[[${citys[4].latitud}]]},id:[[${citys[4].id}]]},
+            {title: [[${citys[5].name}]], location: {lat:[[${citys[5].longitud}]], lng:[[${citys[5].latitud}]]},id:[[${citys[5].id}]]},
+            {title: [[${citys[6].name}]], location: {lat:[[${citys[6].longitud}]], lng:[[${citys[6].latitud}]]},id:[[${citys[6].id}]]}];
 
         var largeInfowindow = new google.maps.InfoWindow();
 
@@ -87,13 +93,16 @@
 
     // This function will loop through the markers array and display them all.
     function showListings() {
+        hideListings();
         var bounds = new google.maps.LatLngBounds();
         // Extend the boundaries of the map for each marker and display the marker
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(map);
-            bounds.extend(markers[i].position);
-        }
+
+        random = Math.floor(Math.random() * (5 - 0 + 1));
+
+        markers[random].setMap(map);
+        bounds.extend(markers[random].position);
         map.fitBounds(bounds);
+        map.setZoom(13);
     }
 
     // This function will loop through the listings and hide them all.
@@ -103,18 +112,11 @@
         }
     }
 
-    function nextCity(){
-        var random = Math.floor(Math.random() * (5 - 0 + 1)) + 1;
-        for (var i = 0; i < location.length; i++) {
-            if(location[i].id==random)
-                return locations[i];
-        }
-
     function checkIfCorrectAnswer() {
         var input = document.getElementById("userInput").value;
 
         // Ändra "a" till CityName
-            if(input == "a"){
+            if(input == locations[random].title){
                 //do something
                 showListings();
             }
