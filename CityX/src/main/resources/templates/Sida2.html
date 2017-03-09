@@ -6,7 +6,7 @@
 <body>
 <div class="container">
     <div class="options-box">
-        <h1>Gissa var</h1>
+        <h1>Vart tror du att vi är?</h1>
         <div>
             <input id="show-listings" type="button" value="Show Listings"/>
             <input id="hide-listings" type="button" value="Hide Listings"/>
@@ -16,10 +16,17 @@
 
         <input id="userInput" type="text" name="userInput"/>
         <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer()">Gissa</button>
-        <button id="hint1" class="hint" type="button"><div>Ledtråd 1</div></button>
+
+
+
+        <div id="score"></div>
+
+        <button id="hint1" type="button"><div>Ledtråd 1</div></button>
+
         <p id="hintbox1"></p>
         <button id="hint2" class="hint" type="button"><div>Ledtråd 2</div></button>
         <p id="hintbox2"></p>
+
     </div>
 
     <div id="map"></div>
@@ -30,15 +37,27 @@
     var map;
     var random;
     var locations;
-    var arr = []
-    // Create a new blank array for all the listing markers.
+    var highscore=0;
     var markers = [];
+    var arr = []
+
+    //Create a new blank array for all the listing markers.
 
     function initMap() {
+        var styles = [
+            {
+                featureType: "all",
+                elementType: "labels",
+                stylers: [
+                    { visibility: "off" }
+                ]
+            }
+        ];
         // Constructor creates a new map - only center and zoom are required.
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 40.7413549, lng: -73.9980244},
             zoom: 13,
+            styles: styles,
             mapTypeControl: false
         });
         genRandoms();
@@ -58,6 +77,7 @@
         var largeInfowindow = new google.maps.InfoWindow();
 
         /*<![CDATA[*/  // The following group uses the location array to create an array of markers on initialize.
+        //Skapar en array med random ordning
         function genRandoms() {
             while (arr.length < 7) {
                 var randomnumber = Math.ceil(Math.random() * 7)
@@ -115,6 +135,7 @@
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
         map.setZoom(13);
+
     }
 
     function newNumber(){
@@ -140,7 +161,30 @@
                 //visa ledtrådar/zooma ut/whatever
                 hideListings();
             }
+            scoreKeeper()
     }
+
+
+    function scoreKeeper(){
+        var input = document.getElementById("userInput").value;
+
+        // Ändra "a" till CityName
+            if(input == locations[random].title){
+                //do something
+                highscore=highscore+100;
+            }
+            else {
+                //visa ledtrådar/zooma ut/whatever
+                highscore=highscore-50;
+            }
+            showScoreToUser();
+
+    }
+
+    function showScoreToUser(){
+        var idScore = document.getElementByID("score").innerHTML = highscore.toString();
+    }
+
 
     var hint1 = document.getElementById("hint1");
     hint1.onclick = function() {
