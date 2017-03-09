@@ -16,14 +16,14 @@
 
         <input id="userInput" type="text" name="userInput"/>
         <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer()">Gissa</button>
-<<<<<<< HEAD
+
         <div id="score"></div>
-=======
+
         <button id="hint1" type="button"><div>Ledtråd 1</div></button>
         <p id="hintbox1"></p>
         <button id="hint2" type="button"><div>Ledtråd 2</div></button>
         <p id="hintbox2"></p>
->>>>>>> fbcb7bda5fd44877338d1db55d9e54372505c1b3
+
     </div>
 
     <div id="map"></div>
@@ -34,14 +34,11 @@
     var map;
     var random;
     var locations;
-<<<<<<< HEAD
     var highscore=0;
-
-=======
-    var arr = []
->>>>>>> a47f6a6859a4ab14b34bbfcbd7c0632f5f686f67
-    // Create a new blank array for all the listing markers.
     var markers = [];
+    var arr = []
+
+    //Create a new blank array for all the listing markers.
 
     function initMap() {
         // Constructor creates a new map - only center and zoom are required.
@@ -153,7 +150,7 @@
             scoreKeeper()
     }
 
-<<<<<<< HEAD
+
     function scoreKeeper(){
         var input = document.getElementById("userInput").value;
 
@@ -174,7 +171,7 @@
         var idScore = document.getElementByID("score").innerHTML = highscore.toString();
     }
 
-=======
+
     var hint1 = document.getElementById("hint1");
     hint1.onclick = function() {
 
@@ -203,7 +200,6 @@
     }
 
 
->>>>>>> fbcb7bda5fd44877338d1db55d9e54372505c1b3
 /*]]>*/
 </script>
 
