@@ -15,11 +15,10 @@
         </div>
 
         <input id="userInput" type="text" name="userInput"/>
-        <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer()">Gissa</button>
-
-
+        <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer();">Gissa</button>
 
         <div id="score"></div>
+
 
         <button id="hint1" type="button"><div>Ledtråd 1</div></button>
 
@@ -38,6 +37,7 @@
     var random;
     var locations;
     var highscore=0;
+    var count=0;
     var markers = [];
     var arr = [];
 
@@ -79,8 +79,8 @@
         /*<![CDATA[*/  // The following group uses the location array to create an array of markers on initialize.
         //Skapar en array med random ordning
         function genRandoms() {
-            while (arr.length < 7) {
-                var randomnumber = Math.ceil(Math.random() * 7)
+            while (arr.length < 11) {
+                var randomnumber = Math.ceil(Math.random() * 11)
                 if (arr.indexOf(randomnumber) > -1) continue;
                 arr[arr.length] = randomnumber;
             }
@@ -150,25 +150,34 @@
     }
 
     function checkIfCorrectAnswer() {
-        var input = document.getElementById("userInput").value;
+        count=count+1;
+        if(count<=11){
+            var input = document.getElementById("userInput").value;
 
-        // Ändra "a" till CityName
-            if(input == locations[random].title){
+            // Ändra "a" till CityName
+            if (input == locations[random].title) {
                 //do something
                 showListings();
-                highscore=highscore+100;
+                highscore = highscore + 100;
             }
             else {
                 //visa ledtrådar/zooma ut/whatever
                 hideListings();
-                highscore=highscore-50;
+                highscore = highscore - 50;
             }
+
             showScoreToUser();
+            document.getElementById("userInput").value='';
+        }
+        else{
+            document.getElementById("score").innerHTML = 'Grattis, din score är '+ highscore+' p';
+        }
+
     }
 
 
     function showScoreToUser(){
-        document.getElementById("score").innerHTML = highscore;
+        document.getElementById("score").innerHTML = highscore+" p";
     }
 
 
