@@ -6,7 +6,7 @@
 <body>
 <div class="container">
     <div class="options-box">
-        <h1>Gissa var</h1>
+        <h1>Vart tror du att vi är?</h1>
         <div>
             <input id="show-listings" type="button" value="Show Listings"/>
             <input id="hide-listings" type="button" value="Hide Listings"/>
@@ -16,6 +16,7 @@
 
         <input id="userInput" type="text" name="userInput"/>
         <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer()">Gissa</button>
+        <div id="score"></div>
     </div>
 
     <div id="map"></div>
@@ -26,6 +27,7 @@
     var map;
     var random;
     var locations;
+    var highscore=0;
 
     // Create a new blank array for all the listing markers.
     var markers = [];
@@ -103,6 +105,7 @@
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
         map.setZoom(13);
+
     }
 
     // This function will loop through the listings and hide them all.
@@ -124,7 +127,29 @@
                 //visa ledtrådar/zooma ut/whatever
                 hideListings();
             }
+            scoreKeeper()
     }
+
+    function scoreKeeper(){
+        var input = document.getElementById("userInput").value;
+
+        // Ändra "a" till CityName
+            if(input == locations[random].title){
+                //do something
+                highscore=highscore+100;
+            }
+            else {
+                //visa ledtrådar/zooma ut/whatever
+                highscore=highscore-50;
+            }
+            showScoreToUser();
+
+    }
+
+    function showScoreToUser(){
+        var idScore = document.getElementByID("score").innerHTML = highscore.toString();
+    }
+
 /*]]>*/
 </script>
 

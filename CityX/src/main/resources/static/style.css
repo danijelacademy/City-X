@@ -1,51 +1,104 @@
 html,body {
-            font-family: Arial, sans-serif;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url("world_map_04.jpg");
+}
+#userInput {
+   color: #2F4F4F;
+   font-size: 10px;
+   margin: 15px ;
+   height: 5%; }
 
-        .container {
-            height: 100%;
-            position: relative;
-        }
+#indexrad2 {
+    color: white;
+    font-size: 15px;
+    margin: 20px;
+    text-align: center;
+    height: 0%;
+}
+#indexrad3 {
+    color: white;
+    font-size: 150px;
+    margin: 8px;
+    text-align: center;
+    height: 40%;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#loptext {
+    color:     #2F4F4F;
+    font-size: 60px;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+#knapp {
+    background-color: darkgrey; /* Green */
+    color: #2F4F4F;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin:0 auto;
+}
+#knapp2 {
+    background-color: lawngreen; /* Green */
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+#sida1{
+    background-color: burlywood;
+    text-align: center;
+    color:#fff;
+    padding-top:10em;
+}
 
-        input {
-            font-size: 12px;
-        }
+* { color:#fff;
+    text-decoration: none;
 
-        h1 {
-            color: #525454;
-            font-size: 22px;
-            margin: 0 0 10px 0;
-            text-align: center;
-        }
+}
+.container {
+    height: 100%;
+    width: 920px;
+    position: relative;
+    margin: 0 auto;
+}
 
-        #hide-listings,
-        #show-listings {
-            width: 48%;
-        }
+input {
+    font-size: 12px;
+}
 
-        #userInput,
-        #userSubmit {
-            width: 48%;
-        }
+/*  h1 {
+      color:     #2F4F4F;
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      text-align: center;
+  } */
 
-        #map {
-            bottom:0px;
-            height: 100%;
-            left: 362px;
-            position: absolute;
-            right: 0px;
-        }
+#hide-listings,
+#show-listings {
+    width: 25%;
+}
 
-        .options-box {
-            background: #fff;
-            border: 1px solid #999;
-            border-radius: 3px;
-            height: 100%;
-            line-height: 35px;
-            padding: 10px 10px 30px 10px;
-            text-align: left;
-            width: 340px;
-        }
+#map {
+    bottom:0px;
+    color: #2F4F4F;
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    right: 0px;
+}
+
+.options-box {
+    background: #DCDCDC;
+    border: 1px solid #999;
+    height: 28%;
+    line-height: 34px;
+    text-align: center;
+    width: 100%;
+
+}
