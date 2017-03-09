@@ -16,7 +16,14 @@
 
         <input id="userInput" type="text" name="userInput"/>
         <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer()">Gissa</button>
+<<<<<<< HEAD
         <div id="score"></div>
+=======
+        <button id="hint1" type="button"><div>Ledtråd 1</div></button>
+        <p id="hintbox1"></p>
+        <button id="hint2" type="button"><div>Ledtråd 2</div></button>
+        <p id="hintbox2"></p>
+>>>>>>> fbcb7bda5fd44877338d1db55d9e54372505c1b3
     </div>
 
     <div id="map"></div>
@@ -49,13 +56,13 @@
         // Normally we'd have these in a database instead
 
         locations=[
-            {title: [[${citys[0].name}]], location: {lat:[[${citys[0].longitud}]], lng:[[${citys[0].latitud}]]},id:[[${citys[0].id}]]},
-            {title: [[${citys[1].name}]], location: {lat:[[${citys[1].longitud}]], lng:[[${citys[1].latitud}]]},id:[[${citys[1].id}]]},
-            {title: [[${citys[2].name}]], location: {lat:[[${citys[2].longitud}]], lng:[[${citys[2].latitud}]]},id:[[${citys[2].id}]]},
-            {title: [[${citys[3].name}]], location: {lat:[[${citys[3].longitud}]], lng:[[${citys[3].latitud}]]},id:[[${citys[3].id}]]},
-            {title: [[${citys[4].name}]], location: {lat:[[${citys[4].longitud}]], lng:[[${citys[4].latitud}]]},id:[[${citys[4].id}]]},
-            {title: [[${citys[5].name}]], location: {lat:[[${citys[5].longitud}]], lng:[[${citys[5].latitud}]]},id:[[${citys[5].id}]]},
-            {title: [[${citys[6].name}]], location: {lat:[[${citys[6].longitud}]], lng:[[${citys[6].latitud}]]},id:[[${citys[6].id}]]}];
+            {title: [[${citys[0].name}]], location: {lat:[[${citys[0].longitud}]], lng:[[${citys[0].latitud}]]},id:[[${citys[0].id}]], hint1: [[${citys[0].hint1}]], hint2: [[${citys[0].hint2}]]},
+            {title: [[${citys[1].name}]], location: {lat:[[${citys[1].longitud}]], lng:[[${citys[1].latitud}]]},id:[[${citys[1].id}]], hint1: [[${citys[1].hint1}]], hint2: [[${citys[1].hint2}]]},
+            {title: [[${citys[2].name}]], location: {lat:[[${citys[2].longitud}]], lng:[[${citys[2].latitud}]]},id:[[${citys[2].id}]], hint1: [[${citys[2].hint1}]], hint2: [[${citys[2].hint2}]]},
+            {title: [[${citys[3].name}]], location: {lat:[[${citys[3].longitud}]], lng:[[${citys[3].latitud}]]},id:[[${citys[3].id}]], hint1: [[${citys[3].hint1}]], hint2: [[${citys[3].hint2}]]},
+            {title: [[${citys[4].name}]], location: {lat:[[${citys[4].longitud}]], lng:[[${citys[4].latitud}]]},id:[[${citys[4].id}]], hint1: [[${citys[4].hint1}]], hint2: [[${citys[4].hint2}]]},
+            {title: [[${citys[5].name}]], location: {lat:[[${citys[5].longitud}]], lng:[[${citys[5].latitud}]]},id:[[${citys[5].id}]], hint1: [[${citys[5].hint1}]], hint2: [[${citys[5].hint2}]]},
+            {title: [[${citys[6].name}]], location: {lat:[[${citys[6].longitud}]], lng:[[${citys[6].latitud}]]},id:[[${citys[6].id}]], hint1: [[${citys[6].hint1}]], hint2: [[${citys[6].hint2}]]}];
 
         var largeInfowindow = new google.maps.InfoWindow();
 
@@ -146,6 +153,7 @@
             scoreKeeper()
     }
 
+<<<<<<< HEAD
     function scoreKeeper(){
         var input = document.getElementById("userInput").value;
 
@@ -166,6 +174,36 @@
         var idScore = document.getElementByID("score").innerHTML = highscore.toString();
     }
 
+=======
+    var hint1 = document.getElementById("hint1");
+    hint1.onclick = function() {
+
+        var p = document.getElementById("hintbox1");
+        if (p.style.display !== 'none') {
+            p.style.display = 'none';
+        }
+        else {
+            p.style.display = 'block';
+            p.innerHTML = locations[random].hint1.toString()
+        }
+
+    }
+    var hint2 = document.getElementById("hint2");
+    hint2.onclick = function() {
+
+        var p = document.getElementById("hintbox2");
+        if (p.style.display !== 'none') {
+            p.style.display = 'none';
+        }
+        else {
+            p.style.display = 'block';
+            p.innerHTML = locations[random].hint2.toString()
+        }
+
+    }
+
+
+>>>>>>> fbcb7bda5fd44877338d1db55d9e54372505c1b3
 /*]]>*/
 </script>
 
