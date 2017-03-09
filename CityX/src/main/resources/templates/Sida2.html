@@ -156,33 +156,19 @@
             if(input == locations[random].title){
                 //do something
                 showListings();
-            }
-            else {
-                //visa ledtrådar/zooma ut/whatever
-                hideListings();
-            }
-            scoreKeeper()
-    }
-
-
-    function scoreKeeper(){
-        var input = document.getElementById("userInput").value;
-
-        // Ändra "a" till CityName
-            if(input == locations[random].title){
-                //do something
                 highscore=highscore+100;
             }
             else {
                 //visa ledtrådar/zooma ut/whatever
+                hideListings();
                 highscore=highscore-50;
             }
             showScoreToUser();
-
     }
 
+
     function showScoreToUser(){
-        var idScore = document.getElementByID("score").innerHTML = highscore.toString();
+        document.getElementById("score").innerHTML = highscore;
     }
 
 
