@@ -71,6 +71,7 @@ html,body {
     height: 800px;
     width: 920px;
     margin: 0 auto;
+    position: relative;
 }
 
 input {
