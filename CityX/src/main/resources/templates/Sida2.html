@@ -142,6 +142,8 @@
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
         map.setZoom(10);
+        document.getElementById("hintbox2").style.display = 'none';
+        document.getElementById("hintbox1").style.display = 'none';
 
     }
 
@@ -162,6 +164,7 @@
 
             // Ändra "a" till CityName
             if (input.toUpperCase() == locations[random].title.toUpperCase()) {
+                document.getElementById("correctAnswer").innerHTML = "Rätt svar!";
                 showListings();
                 highscore = highscore + 100;
             }
@@ -187,30 +190,20 @@
     hint1.onclick = function() {
 
         var p = document.getElementById("hintbox1");
-        if (p.style.display !== 'none') {
-            p.style.display = 'none';
-        }
-        else {
             p.style.display = 'block';
             p.innerHTML = locations[random].hint1.toString();
             highscore=highscore-25;
             showScoreToUser();
-        }
 
     }
     var hint2 = document.getElementById("hint2");
     hint2.onclick = function() {
 
         var p = document.getElementById("hintbox2");
-        if (p.style.display !== 'none') {
-            p.style.display = 'none';
-        }
-        else {
             p.style.display = 'block';
             p.innerHTML = locations[random].hint2.toString();
             highscore=highscore-25;
             showScoreToUser();
-        }
     }
 
     var startGame = document.getElementById("show-listings");
