@@ -194,8 +194,9 @@
             p.innerHTML = locations[random].hint1.toString();
             highscore=highscore-25;
             showScoreToUser();
+        }
 
-    }
+
     var hint2 = document.getElementById("hint2");
     hint2.onclick = function() {
 
@@ -204,6 +205,7 @@
             p.innerHTML = locations[random].hint2.toString();
             highscore=highscore-25;
             showScoreToUser();
+
     }
 
     var startGame = document.getElementById("show-listings");
