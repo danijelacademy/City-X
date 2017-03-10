@@ -153,14 +153,15 @@
     }
 
     function checkIfCorrectAnswer() {
-        count=count+1;
-        if(count<=11){
+
+        if(count<=9){
             var input = document.getElementById("userInput").value;
 
             // Ändra "a" till CityName
             if (input == locations[random].title) {
                 //do something
                 showListings();
+                count=count+1; //räknar antalet rätta svar
                 highscore = highscore + 100;
             }
             else {
