@@ -17,6 +17,7 @@
         <button id="userSubmit" type="button" onclick="checkIfCorrectAnswer();">Gissa</button>
 
         <div id="score"></div>
+        <div id="correctAnswer"></div>
 
 
         <button id="hint1" type="button"><div>Ledtråd 1</div></button>
@@ -38,6 +39,7 @@
     var highscore=0;
     var markers = [];
     var arr = [];
+    var correctAnswer;
     
 
     //Create a new blank array for all the listing markers.
@@ -133,6 +135,7 @@
 
         random = newNumber();
         console.log("Random är: " + random);
+        correctAnswer = locations[random].title;
         if(random===undefined)
             document.getElementById("score").innerHTML = 'Grattis, din score är '+ highscore+' p';
         markers[random].setMap(map);
@@ -164,6 +167,7 @@
             }
             else {
                 //visa ledtrådar/zooma ut/whatever
+                document.getElementById("correctAnswer").innerHTML = "Rätt svar var " + correctAnswer;
                 showListings();
                 highscore = highscore - 50;
             }
@@ -207,7 +211,16 @@
             highscore=highscore-25;
             showScoreToUser();
         }
+    }
 
+    var startGame = document.getElementById("show-listings");
+    startGame.onclick = function() {
+        if (startGame.style.display !== 'none') {
+            startGame.style.display = 'none';
+        }
+        else {
+            startGame.style.display = 'block';
+        }
     }
 
 
