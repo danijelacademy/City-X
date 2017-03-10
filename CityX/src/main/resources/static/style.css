@@ -3,7 +3,6 @@ html,body {
     height: 100%;
     background: url("world_map_04.jpg");
     background-size: 80%;
-
 }
 
 #hintbox1,
@@ -40,6 +39,13 @@ html,body {
     margin: 0 0 10px 0;
     text-align: center;
 }
+#loptext2
+{
+    color:     #2F4F4F;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
 #knapp {
     background-color: darkgrey; /* Green */
     color: #2F4F4F;
@@ -51,7 +57,7 @@ html,body {
     margin:0 auto;
 }
 #knapp2 {
-    background-color: black ; /* Green */
+    background-color: #2F4F4F ; /* Green */
     color: white;
     padding: 20px 20px;
     text-align: center;
@@ -79,12 +85,47 @@ input {
     font-size: 12px;
 }
 
-/*  h1 {
-      color:     #2F4F4F;
-      font-size: 20px;
-      margin: 0 0 10px 0;
-      text-align: center;
-  } */
+ h1 {
+     color: darkslategrey;
+     font-size: 20px;
+     margin: 0 0 10px 0;
+     text-align: center;
+ }
+     #score {
+         Color: olive;
+     }
+     #userSubmit {
+         color: seagreen;
+     }
+     #show-listings {
+         background-color: #2F4F4F; /* Green */
+         font-size: 14px;
+         margin:0 auto;
+     }
+     #correctAnswer {
+     color: darkgreen;
+     }
+     #hint1 {
+         background-color: #2F4F4F; /* Green */
+         color: #2F4F4F;
+         text-decoration: none;
+         font-size: 14px;
+         margin:0 auto;
+     }
+     #hint2 {
+         background-color: #2F4F4F; /* Green */
+         color: #2F4F4F;
+         font-size: 14px;
+         margin:0 auto;
+     }
+    #hintbox1 {
+         color: darkred;
+    font-family: "Arial Nova Light";
+    }
+     #hintbox2 {
+         color: darkred;
+         font-family: "Arial Nova Light";}
+
 
 #hide-listings,
 #show-listings {
@@ -95,7 +136,7 @@ input {
     bottom:0px;
     color: #2F4F4F;
     width: 100%;
-    height: 70%;
+    height: 60%;
     position: absolute;
     right: 0px;
 }
@@ -103,11 +144,10 @@ input {
 .options-box {
     background: #DCDCDC;
     border: 1px solid #999;
-    height: 35%;
+    height: 40%;
     line-height: 34px;
     text-align: center;
     width: 100%;
-
 }
 
 
