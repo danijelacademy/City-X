@@ -42,7 +42,7 @@
     var correctAnswer;
     
 
-    //Create a new blank array for all the listing markers.
+    //Styling för kartan, tar bort namn
 
     function initMap() {
         var styles = [
@@ -54,7 +54,7 @@
                 ]
             }
         ];
-        // Constructor creates a new map - only center and zoom are required.
+        // Skapar karta
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 48.236989, lng: 5.111068},
             zoom: 2,
@@ -93,50 +93,28 @@
             }
         }
         for (var i = 0; i < locations.length; i++) {
-            // Get the position from the location array.
+            // Tar position från location array.
             var position = locations[i].location;
             var title = locations[i].title;
-            // Create a marker per location, and put into markers array.
+            // Skapar markers från locations array.
             var marker = new google.maps.Marker({
                 position: position,
                 title: " ",
                 animation: google.maps.Animation.DROP,
                 id: i
             });
-            // Push the marker to our array of markers.
+            // Lägger ut marker
             markers.push(marker);
-            // Create an onclick event to open an infowindow at each marker.
-            marker.addListener('click', function() {
-                populateInfoWindow(this, largeInfowindow);
-            });
         }
         document.getElementById('show-listings').addEventListener('click', showListings);
     }
 
-    // This function populates the infowindow when the marker is clicked. We'll only allow
-    // one infowindow which will open at the marker that is clicked, and populate based
-    // on that markers position.
-    function populateInfoWindow(marker, infowindow) {
-        // Check to make sure the infowindow is not already opened on this marker.
-        if (infowindow.marker != marker) {
-            infowindow.marker = marker;
-            infowindow.setContent('<div>' + marker.title + '</div>');
-            infowindow.open(map, marker);
-            // Make sure the marker property is cleared if the infowindow is closed.
-            infowindow.addListener('closeclick', function() {
-                infowindow.marker = null;
-            });
-        }
-    }
-
-    // This function will loop through the markers array and display them all.
+    // Lägger ut location från marker array.
     function showListings() {
         hideListings();
         var bounds = new google.maps.LatLngBounds();
-        // Extend the boundaries of the map for each marker and display the marker
 
         random = newNumber();
-        console.log("Random är: " + random);
         correctAnswer = locations[random].title;
         if(random===undefined)
             document.getElementById("score").innerHTML = 'Grattis, din score är '+ highscore+' p';
@@ -153,7 +131,7 @@
         return arr.shift();
     }
 
-    // This function will loop through the listings and hide them all.
+    // Döljer föregående
     function hideListings() {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
