@@ -8,8 +8,7 @@
     <div class="options-box">
         <h1>Vart tror du att vi är?</h1>
         <div>
-            <input id="show-listings" type="button" value="Show Listings"/>
-            <input id="hide-listings" type="button" value="Hide Listings"/>
+            <input id="show-listings" type="button" value="Börja spelet"/>
             <div class="results"></div>
 
         </div>
@@ -83,7 +82,7 @@
         //Skapar en array med random ordning
         function genRandoms() {
             while (arr.length < 11) {
-                var randomnumber = Math.ceil(Math.random() * 11)
+                var randomnumber = Math.ceil(Math.random() * 11) -1;
                 if (arr.indexOf(randomnumber) > -1) continue;
                 arr[arr.length] = randomnumber;
             }
@@ -107,7 +106,6 @@
             });
         }
         document.getElementById('show-listings').addEventListener('click', showListings);
-        document.getElementById('hide-listings').addEventListener('click', hideListings);
     }
 
     // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -133,7 +131,9 @@
         // Extend the boundaries of the map for each marker and display the marker
 
         random = newNumber();
-        console.log("Nummer " + random + " title på aktuell: " + locations[random].title);
+        console.log("Random är: " + random);
+        if(random===undefined)
+            document.getElementById("score").innerHTML = 'Grattis, din score är '+ highscore+' p';
         markers[random].setMap(map);
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
@@ -165,7 +165,7 @@
             }
             else {
                 //visa ledtrådar/zooma ut/whatever
-                hideListings();
+                showListings();
                 highscore = highscore - 50;
             }
 
