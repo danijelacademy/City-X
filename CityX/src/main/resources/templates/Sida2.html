@@ -36,7 +36,6 @@
     var random;
     var locations;
     var highscore=0;
-    var count=0;
     var markers = [];
     var arr = [];
 
@@ -154,13 +153,11 @@
 
     function checkIfCorrectAnswer() {
 
-        if(count<=9){
             var input = document.getElementById("userInput").value;
 
             // Ändra "a" till CityName
             if (input.toUpperCase() == locations[random].title.toUpperCase()) {
                 showListings();
-                count=count+1; //räknar antalet rätta svar
                 highscore = highscore + 100;
             }
             else {
@@ -171,10 +168,6 @@
 
             showScoreToUser();
             document.getElementById("userInput").value='';
-        }
-        else{
-            document.getElementById("score").innerHTML = 'Grattis, din score är '+ highscore+' p';
-        }
 
     }
 
@@ -193,7 +186,9 @@
         }
         else {
             p.style.display = 'block';
-            p.innerHTML = locations[random].hint1.toString()
+            p.innerHTML = locations[random].hint1.toString();
+            highscore=highscore-25;
+            showScoreToUser();
         }
 
     }
@@ -206,7 +201,9 @@
         }
         else {
             p.style.display = 'block';
-            p.innerHTML = locations[random].hint2.toString()
+            p.innerHTML = locations[random].hint2.toString();
+            highscore=highscore-25;
+            showScoreToUser();
         }
 
     }
