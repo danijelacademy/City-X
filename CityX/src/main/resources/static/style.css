@@ -5,15 +5,10 @@ html,body {
     background-size: 80%;
 
 }
-#hintbox1 {
-    position: fixed;
 
-}
-
+#hintbox1,
 #hintbox2 {
-    position: fixed;
-    margin: 15px;
-
+    position: relative;
 }
 
 #userInput {
@@ -75,7 +70,6 @@ html,body {
 .container {
     height: 800px;
     width: 920px;
-    position: relative;
     margin: 0 auto;
 }
 
