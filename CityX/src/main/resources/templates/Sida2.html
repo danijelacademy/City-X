@@ -117,9 +117,9 @@
         var bounds = new google.maps.LatLngBounds();
 
         random = newNumber();
-        correctAnswer = locations[random].title;
         if(random===undefined)
             document.getElementById("score").innerHTML = 'Grattis, din score är '+ highscore+' p';
+        correctAnswer = locations[random].title;
         markers[random].setMap(map);
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
