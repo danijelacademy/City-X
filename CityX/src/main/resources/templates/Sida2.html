@@ -40,6 +40,8 @@
     var markers = [];
     var arr = [];
     var correctAnswer;
+    var bool1;
+    var bool2;
 
 
     //Styling för kartan, tar bort namn
@@ -147,12 +149,16 @@
                 document.getElementById("correctAnswer").innerHTML = "Rätt svar!";
                 showListings();
                 highscore = highscore + 100;
+                bool1=false;
+                bool2=false;
             }
             else {
                 //visa ledtrådar/zooma ut/whatever
                 document.getElementById("correctAnswer").innerHTML = "Rätt svar var " + correctAnswer;
                 showListings();
                 highscore = highscore - 50;
+                bool1=false;
+                bool2=false;
             }
 
             showScoreToUser();
@@ -168,23 +174,29 @@
 
     var hint1 = document.getElementById("hint1");
     hint1.onclick = function() {
-
-        var p = document.getElementById("hintbox1");
+        if(!bool1){
+            var p = document.getElementById("hintbox1");
             p.style.display = 'block';
             p.innerHTML = locations[random].hint1.toString();
             highscore=highscore-25;
             showScoreToUser();
+            bool1=true;
         }
+
+    }
 
 
     var hint2 = document.getElementById("hint2");
     hint2.onclick = function() {
-
-        var p = document.getElementById("hintbox2");
+        if(!bool2) {
+            var p = document.getElementById("hintbox2");
             p.style.display = 'block';
             p.innerHTML = locations[random].hint2.toString();
-            highscore=highscore-25;
+            highscore = highscore - 25;
             showScoreToUser();
+            bool2=true;
+
+        }
 
     }
 
