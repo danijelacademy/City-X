@@ -62,9 +62,7 @@
         });
         genRandoms();
 
-        // These are the real estate listings that will be shown to the user.
-        // Normally we'd have these in a database instead
-
+        //Array med all locationdata
         locations=[
             {title: [[${citys[0].name}]], location: {lat:[[${citys[0].longitud}]], lng:[[${citys[0].latitud}]]},id:[[${citys[0].id}]], hint1: [[${citys[0].hint1}]], hint2: [[${citys[0].hint2}]]},
             {title: [[${citys[1].name}]], location: {lat:[[${citys[1].longitud}]], lng:[[${citys[1].latitud}]]},id:[[${citys[1].id}]], hint1: [[${citys[1].hint1}]], hint2: [[${citys[1].hint2}]]},
@@ -72,11 +70,16 @@
             {title: [[${citys[3].name}]], location: {lat:[[${citys[3].longitud}]], lng:[[${citys[3].latitud}]]},id:[[${citys[3].id}]], hint1: [[${citys[3].hint1}]], hint2: [[${citys[3].hint2}]]},
             {title: [[${citys[4].name}]], location: {lat:[[${citys[4].longitud}]], lng:[[${citys[4].latitud}]]},id:[[${citys[4].id}]], hint1: [[${citys[4].hint1}]], hint2: [[${citys[4].hint2}]]},
             {title: [[${citys[5].name}]], location: {lat:[[${citys[5].longitud}]], lng:[[${citys[5].latitud}]]},id:[[${citys[5].id}]], hint1: [[${citys[5].hint1}]], hint2: [[${citys[5].hint2}]]},
-            {title: [[${citys[6].name}]], location: {lat:[[${citys[6].longitud}]], lng:[[${citys[6].latitud}]]},id:[[${citys[6].id}]], hint1: [[${citys[6].hint1}]], hint2: [[${citys[6].hint2}]]}];
+            {title: [[${citys[6].name}]], location: {lat:[[${citys[6].longitud}]], lng:[[${citys[6].latitud}]]},id:[[${citys[6].id}]], hint1: [[${citys[6].hint1}]], hint2: [[${citys[6].hint2}]]},
+            {title: [[${citys[7].name}]], location: {lat:[[${citys[7].longitud}]], lng:[[${citys[7].latitud}]]},id:[[${citys[7].id}]], hint1: [[${citys[7].hint1}]], hint2: [[${citys[7].hint2}]]},
+            {title: [[${citys[8].name}]], location: {lat:[[${citys[8].longitud}]], lng:[[${citys[8].latitud}]]},id:[[${citys[8].id}]], hint1: [[${citys[8].hint1}]], hint2: [[${citys[8].hint2}]]},
+            {title: [[${citys[9].name}]], location: {lat:[[${citys[9].longitud}]], lng:[[${citys[9].latitud}]]},id:[[${citys[9].id}]], hint1: [[${citys[9].hint1}]], hint2: [[${citys[9].hint2}]]},
+            {title: [[${citys[10].name}]], location: {lat:[[${citys[10].longitud}]], lng:[[${citys[10].latitud}]]},id:[[${citys[10].id}]], hint1: [[${citys[10].hint1}]], hint2: [[${citys[10].hint2}]]},
+        ];
 
         var largeInfowindow = new google.maps.InfoWindow();
 
-        /*<![CDATA[*/  // The following group uses the location array to create an array of markers on initialize.
+        /*<![CDATA[*/
         //Skapar en array med random ordning
         function genRandoms() {
             while (arr.length < 11) {
@@ -130,7 +133,7 @@
         // Extend the boundaries of the map for each marker and display the marker
 
         random = newNumber();
-        console.log("Nummer " + random);
+        console.log("Nummer " + random + " title på aktuell: " + locations[random].title);
         markers[random].setMap(map);
         bounds.extend(markers[random].position);
         map.fitBounds(bounds);
