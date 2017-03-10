@@ -22,9 +22,9 @@
 
         <button id="hint1" type="button"><div>Ledtråd 1</div></button>
 
-        <p id="hintbox1"></p>
+        <div id="hintbox1"></div>
         <button id="hint2" class="hint" type="button"><div>Ledtråd 2</div></button>
-        <p id="hintbox2"></p>
+        <div id="hintbox2"></div>
 
     </div>
 
@@ -158,8 +158,7 @@
             var input = document.getElementById("userInput").value;
 
             // Ändra "a" till CityName
-            if (input == locations[random].title) {
-                //do something
+            if (input.toUpperCase() == locations[random].title.toUpperCase()) {
                 showListings();
                 count=count+1; //räknar antalet rätta svar
                 highscore = highscore + 100;
